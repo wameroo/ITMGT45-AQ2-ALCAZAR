@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+{% include "headerdefault.html" %}
+
+
+
+<!-- Header Above  -->
+
+
+
+
+        <div class="background completed-builds">
+            <div class="div-block-22">
+                <h1 class="heading build-guides product-selected">
+                    <strong class="bold-text-3 product-selected"></strong>
+                    <strong>MY CART</strong>
+                </h1>
+                <table>
+                <div class="div-block-13 w-clearfix">
+                    <div class="div-block-12 header cart-header">
+                        <div class="categories cart header">
+                            <div class="name">NAME</div>
+                        </div>
+                        <div class="categories cart">
+                            <div class="quantity">QUANTITY</div>
+                        </div>
+                    </div>
+                    {% for item in session["cart"].values() %}
+                    <div class="div-block-12 header parts cart">
+                        <div class="div-block-23">
+                            <div class="categories parts cart-list name">
+                                <div class="text-block-10 name">{{ item["name"] }}</div>
+                            </div>
+                            <div class="categories parts cart-list quantity">
+                                <div class="text-block-10">{{ item["qty"]}}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#" class="questions-button remove w-button">REMOVE</a>
+                        </div>
+                    </div>
+                  </table>
+                    <div class="div-block-24">
+                        <a href="#" class="button-3 questions-button addtocart finalcart w-button">GO TO CHECKOUT</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+  <!-- Footer -->
+
+
+
+
+{% include "footer.html" %}

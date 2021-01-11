@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com -->
+<!-- Last Published: Sat Jan 09 2021 09:46:40 GMT+0000 (Coordinated Universal Time) -->
+{% include "headerdefault.html" %}
+<!-- Header Above  -->
+
+        <div class="spacing">
+        <div><br/><br/><br/><br/><br/></div>
+        <div class="background completed-builds">
+          {% if session["cart"] is defined %}
+          <div class="div-block-13 w-clearfix">
+              <div class="div-block-12 header cart-header">
+                  <div class="categories cart name">
+                      <div class="name">NAME</div>
+                  </div>
+                  <div class="categories cart">
+                      <div class="quantity">PRICE</div>
+                  </div>
+                  <div class="categories cart quantity">
+                      <div class="quantity">QUANTITY</div>
+                  </div>
+              </div>
+
+              {% for item in session["cart"].values() %}
+              <div class="div-block-12 header parts cart">
+                  <div class="div-block-23">
+                      <div class="categories parts cart-list name">
+                          <div class="text-block-10 name">{{ item["name"] }}</div>
+                      </div>
+                      <div class="categories parts cart-list name">
+                          <div class="text-block-10 name">₱{{ item["subtotal"] }}</div>
+                      </div>
+                      <div class="categories parts cart-list quantity">
+                          <div class="text-block-10">{{ item["qty"] }}</div>
+                      </div>
+                  </div>
+                  <div>
+                      <form action="removeitem" method="post">
+                      <div class="questions-button remove w-button"><input type="hidden" name="code" value={{ item["code"] }}><input type="submit" value="Delete"></div>
+                      </form>
+                  </div>
+              </div>
+              {% endfor %}
+              <div class="div-block-12 header parts cart">
+                  <div class="div-block-23 subtotal">
+                      <div class="categories parts cart-list name">
+                          <div class="text-block-10 name subtotal"><br/><br/><br/><br/><br/><br/><br/><br/><br/>Subtotal</div>
+                      </div>
+                      <div class="categories parts cart-list total">
+                          <div class="text-block-10 name total"><br/><br/><br/><br/><br/><br/><br/><br/><br/>₱{{ session["cart"].values()|sum(attribute="subtotal") }}</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="div-block-24">
+                  <a href="#" class="button-3 questions-button addtocart finalcart w-button">GO TO CHECKOUT</a>
+              </div>
+              {% else %}
+              <div class="background main">
+                  <div class="div-block-4 pc-part sign-up">
+                      <div class="div-block-5">
+                          <div class="hero-text">
+                              <h2 class="heading-2 community">
+                                  Your cart is currently empty. Click <a href="/product_parts"> here to view our products </a>
+                              </h2>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              {% endif %}
+              </div>
+              </div>
+
+
+        </div>
+
+  <!-- Footer -->
+
+
+{% include "footer.html" %}

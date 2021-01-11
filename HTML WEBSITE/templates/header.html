@@ -1,0 +1,5 @@
+{% if session["user"] is defined %}
+{% include "loggedinnavbar.html" %}
+{% else %}
+{% include "header_initial.html" %}
+{% endif %}

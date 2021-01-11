@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. http://www.webflow.com -->
+<!-- Last Published: Sat Jan 09 2021 09:46:40 GMT+0000 (Coordinated Universal Time) -->
+{% include "headerdefault.html" %}
+
+
+
+<!-- Header Above  -->
+
+
+
+
+<h1>Cart</h1>
+
+    {% if session["cart"] is defined %}
+    <table>
+    <tr><th>Name</th><th>Quantity</th><th>Subtotal</th></tr>
+    {% for item in session["cart"].values() %}
+                <tr><td>{{ item["name"] }}</td><td>{{ item["qty"] }}</td><td>{{ item["subtotal"] }}</td></tr>
+    {% endfor %}
+    <tr><td colspan=2><b>Total</b></td><td><b>{{ session["cart"].values()|sum(attribute="subtotal") }}</b></td></tr>
+    </table>
+    {% else %}
+    <div><h2>Your cart is empty</h2></div>
+    {% endif %}
+
+
+
+
+
+  <!-- Footer -->
+
+
+
+
+{% include "footer.html" %}
