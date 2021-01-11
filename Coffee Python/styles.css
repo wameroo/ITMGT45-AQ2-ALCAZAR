@@ -1,0 +1,90 @@
+
+body {
+  margin: 0;
+  background: #444;
+  font-family: "helvetica";
+  font-weight: 900;
+  color: #FFF3D9
+}
+
+.product-image {
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-bottom: 20px;
+}
+
+a {
+  color: #FFF3D9;
+  font-family: "helvetica", serif;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+h1 {
+  text-align: center;
+  font-family: "helvetica";
+  font-weight: 100;
+  font-style: italic;
+  color: #FFF3D9;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background: #6C0606;
+}
+
+.logo {
+  width: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-top: 40px;
+  margin-left: 200px;
+
+  position: relative;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 0%;
+  background-color: #FFF3D9;
+  top: -40;
+  position: absolute;
+  transition: all ease-in-out 200ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
